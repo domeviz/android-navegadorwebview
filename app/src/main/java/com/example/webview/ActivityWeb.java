@@ -28,6 +28,9 @@ public class ActivityWeb extends AppCompatActivity {
 
         //Iniciamos la busqueda
         webV.loadUrl("https://"+url);
+        webV.getSettings().setJavaScriptEnabled(true);
+        webV.getSettings().setAllowContentAccess(true);
+
     }
 
     //Metodo para cerrar la Activity
