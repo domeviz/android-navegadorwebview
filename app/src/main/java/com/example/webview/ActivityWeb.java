@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.view.KeyEvent;
 
 public class ActivityWeb extends AppCompatActivity {
 
@@ -34,4 +35,21 @@ public class ActivityWeb extends AppCompatActivity {
     public void Cerrar(View view){
         finish();
     }
+        @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_BACK:
+                    if (webV.canGoBack()) {
+                        webV.goBack();
+                    } else {
+                        finish();
+                    }
+                    return true;
+            }
+
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+    
 }
